@@ -22,6 +22,10 @@ pandas = "^1.0.0"
 Pillow = "^8.1.2"
 setuptools = "^69.1.1"
 scikit-learn = "^1.4.0"
+notebook = "^7.1.1"
+matplotlib = "^3.8.3"
+torch = "^2.2.1"
+torchvision = "^0.17.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"
