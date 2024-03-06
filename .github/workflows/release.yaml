@@ -1,0 +1,41 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Check if tag is valid
+        id: check_tag
+        run: |
+          if [[ ${{ github.ref }} =~ ^refs/tags/([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+            echo "VALID_TAG=true" >> $GITHUB_ENV
+          else
+            echo "VALID_TAG=false" >> $GITHUB_ENV
+          fi
+
+      - name: Create Release
+        if: env.VALID_TAG == 'true'
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            This is an automated release created by GitHub Actions.
+          draft: false
+          prerelease: false
