@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "prototype"
+version = "0.0.1"
+description = "ASOS MLE Take-home assignment"
+authors = ["Achilleas Athanasiou Fragkoulis <achilleasatha@gmail.com>"]
+readme = "README.md"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+mkdocs = "^1.5.3"
+bumpver = "^2023.1129"
+pydantic = "^2.6.0"
+click = "^8.1.7"
+pyyaml = "^6.0.1"
+fastapi = "^0.110.0"
+numpy = "^1.26.4"
+pandas = "^1.0.0"
+Pillow = "^8.1.2"
+setuptools = "^69.1.1"
+scikit-learn = "^1.4.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+pytest-cov = "^4.1.0"
+
+[tool.poetry.scripts]
+run_cli = "prototype.cli.cli:run_cli"
+
+[tool.bumpver]
+current_version = "0.0.1"
+version_pattern = "MAJOR.MINOR.PATCH[PYTAGNUM]"
+commit = true
+commit_message = "bump version {old_version} -> {new_version}"
+tag = true
+push = true
+bump_files = ["pyproject.toml"]
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+    'version = "{pep440_version}"'
+]
+"prototype/__init__.py" = [
+    '__version__ = "{pep440_version}"'
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
