@@ -1,3 +1,6 @@
+![GitHub Actions](https://github.com/asos-talent/candidate-REF3103AAF/actions/workflows/ci.yaml/badge.svg)
+![GitHub Actions](https://github.com/asos-talent/candidate-REF3103AAF/actions/workflows/build.yaml/badge.svg)
+
 # ASOS MLE Takehome Assignment
 
 ### Using the CLI & Launching Jobs
