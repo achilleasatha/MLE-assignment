@@ -21,7 +21,7 @@ def start_process(config: AppConfigSettings):
     port = config.mlflow.port
     # Check if MLflow UI is already running
     if subprocess.run(
-        ["/usr/sbin/lsof", "-ti", f":{port}"], capture_output=True  # nosec
+        ["/usr/bin/lsof", "-ti", f":{port}"], capture_output=True  # nosec
     ).stdout.strip():
         logging.info("MLflow UI is already running.")
         pid = None

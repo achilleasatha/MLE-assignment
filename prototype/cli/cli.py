@@ -97,6 +97,9 @@ def run_cli(
         inference_results.to_csv(
             os.path.join(root_directory, output_dir, "predictions_test.csv")
         )
+        logger.info(
+            f'Results saved to {os.path.join(root_directory, output_dir, "predictions_test.csv")}'
+        )
     elif job_name == "inference":
         subprocess.run(  # nosec
             f"uvicorn main:app --reload --host {config.app.host} --port {config.app.port}",
