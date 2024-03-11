@@ -1,5 +1,5 @@
-![GitHub Actions](https://github.com/asos-talent/candidate-REF3103AAF/actions/workflows/ci.yaml/badge.svg)
-![GitHub Actions](https://github.com/asos-talent/candidate-REF3103AAF/actions/workflows/build.yaml/badge.svg)
+[![Run pytest tests](https://github.com/asos-talent/candidate-REF3103AAF/actions/workflows/ci.yaml/badge.svg)](https://github.com/asos-talent/candidate-REF3103AAF/actions/workflows/ci.yaml)
+[![Docker Image Build Test](https://github.com/asos-talent/candidate-REF3103AAF/actions/workflows/build.yaml/badge.svg)](https://github.com/asos-talent/candidate-REF3103AAF/actions/workflows/build.yaml)
 
 # ASOS MLE Takehome Assignment
 
@@ -305,3 +305,4 @@ If you'd like to contribute to this project, please follow the Contributing Guid
 
 ### Support
 If you encounter any issues or have questions about this project, please open an issue on GitHub.
+]()
