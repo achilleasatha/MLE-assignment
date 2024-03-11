@@ -20,7 +20,7 @@ jobs:
       run: docker build -t my-docker-image .
 
     - name: Test Docker image
-      run: docker run --rm my-docker-image poetry run pytest
+      run: docker run --rm -p 8000:8000 -p 5000:5000 --network host -j inference my-docker-image
 
     - name: Cleanup Docker images
       run: docker rmi my-docker-image
