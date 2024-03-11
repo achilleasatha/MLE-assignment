@@ -20,7 +20,7 @@ jobs:
       run: docker build -t my-docker-image .
 
     - name: Start Docker container
-      run: docker run -d -p 8000:8000 -p 5000:5000 --name my-container -j inference my-docker-image
+      run: docker run -d -p 8000:8000 -p 5000:5000 --name my-container my-docker-image --job-name inference
 
     - name: Ping inference endpoint
       run: curl -s -o /dev/null -w "%{http_code}" http://localhost:8000/inference
