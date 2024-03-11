@@ -1,0 +1,54 @@
+app:
+  app_name: PatternClassifier
+  debug: false
+  log_level: info
+  environment: qa
+  host: localhost
+  port: 8000
+train:
+  data_dir: data
+  train_data_file_name: exercise_train.tsv
+  target_variable: pattern
+  seed: 42
+  test_size: 0.1
+  n_splits_k_fold_search: 8
+  n_splits_k_fold_validation: 16
+  grid_search_parameters:
+    vectorizer__max_df: !!python/tuple [0.5, 0.75, 1.0]
+#   vectorizer__max_features: !!python/tuple [null, 5000, 10000, 50000]
+    vectorizer__ngram_range: !!python/tuple [!!python/tuple [1, 1], !!python/tuple [1, 2]]
+    classifier__alpha: !!python/tuple [1.0e-05, 1.0e-04, 1.0e-03]
+#   classifier__penalty: !!python/tuple ['l2', 'elasticnet', 'l1']
+    classifier__l1_ratio: !!python/tuple [0.01, 0.05, 0.1]
+#   classifier__n_iter: !!python/tuple [5, 10, 50]
+test:
+  data_dir: data
+  test_data_file_name: exercise_test.tsv
+  index: productIdentifier
+inference:
+  classifier_run_id:
+  classifier_experiment_id:
+  classifier_file_path: 'trained_model.pkl'
+  classifier_location: local
+  format: pkl
+classifier:
+  classifier_name: SGDClassifier
+  classifier_loss: modified_huber
+  classifier_penalty: elasticnet
+  classifier_alpha: 1.0e-03
+vectorizer:
+  vectorizer_name: tfid_vectorizer
+scaler:
+  scaler_name: null
+export:
+  export_dir: ''
+  s3_bucket: null
+  s3_prefix: PatternClassifier/model_artifacts
+  export_format: pkl
+  export_location: null
+mlflow:
+  host: localhost
+  port: 5000
+elasticsearch:
+  host: localhost:9200
+  enabled: false
