@@ -11,3 +11,9 @@ site/
 # Coverage reports for tests
 .coverage
 coverage.xml
+
+# Ignore exported artifacts
+*.pkl
+
+# Ignore log files
+*.log
