@@ -23,7 +23,7 @@ jobs:
       run: docker run -d -p 8000:8000 -p 5000:5000 --network host --name my-container my-docker-image -j inference
 
     - name: Ping inference endpoint
-      run: curl -s -o /dev/null -w "%{http_code}" http://localhost:8000/inference
+      run: curl -s -o /dev/null -w "%{http_code}" http://localhost:8000/infer
 
     - name: Cleanup Docker container
       run: docker stop my-container && docker rm my-container
