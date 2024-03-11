@@ -30,7 +30,7 @@ repos:
         entry: flake8
         language: system
         stages: [commit, pre-push]
-        args: [ --max-line-length=120, '--extend-ignore=E203,W503' ]
+        args: [ --max-line-length=120, '--extend-ignore=E203,W503, F841' ]
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
     rev: 'v0.2.0'
