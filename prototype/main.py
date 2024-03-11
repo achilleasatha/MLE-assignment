@@ -18,7 +18,10 @@ from prototype.observability.elastic_search_logging import elastic_search_setup
 from prototype.pipelines.preprocessing import get_inputs
 from prototype.utils import load_classifier
 
-config = load_config_from_yaml("../config.yaml", cli_args=None)
+root_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+config = load_config_from_yaml(
+    file_path=os.path.join(root_directory, "config.yaml"), cli_args={}
+)
 logger = setup_logging(config)
 
 if config.elasticsearch.enabled:
