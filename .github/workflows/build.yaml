@@ -1,0 +1,26 @@
+name: Docker Image Build Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Build Docker image
+      run: docker build -t my-docker-image .
+
+    - name: Test Docker image
+      run: docker run --rm my-docker-image pytest
+
+    - name: Cleanup Docker images
+      run: docker rmi my-docker-image
