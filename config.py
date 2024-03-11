@@ -30,7 +30,7 @@ class TrainConfig(BaseModel):
     n_splits_k_fold_validation: Optional[int] = Field(
         ..., description="K-fold splits for validation"
     )
-    grid_search_parameters: Optional[dict] = Field(
+    grid_search_parameters: dict = Field(
         ..., description="Parameters to use for grid search"
     )
 
