@@ -19,4 +19,4 @@ LABEL stage=intermediate
 ENTRYPOINT ["poetry", "run", "run_cli"]
 
 # Default command-line arguments
-#CMD ["-j", "test", "--classifier-file-path", "trained_model.pkl", \
+#CMD ["-j", "training", "--classifier-file-path", "trained_model.pkl", \
