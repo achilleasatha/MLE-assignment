@@ -32,5 +32,5 @@ TEST_DATA_SCHEMA = pandera.DataFrameSchema(
 )
 
 INFERENCE_DATA_SCHEMA = pandera.SeriesSchema(
-    pandera.String, index={"name": "productIdentifier"}
+    pandera.String, index=pandera.Index(pandera.String, name="productIdentifier")
 )
