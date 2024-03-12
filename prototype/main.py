@@ -111,6 +111,11 @@ async def get_docs():
     return RedirectResponse(url="/docs")
 
 
+@app.get("/health")
+async def health_check():
+    return {"status": "ok"}
+
+
 @app.get("/metrics")
 async def metrics():
     return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)

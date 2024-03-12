@@ -20,10 +20,12 @@ jobs:
       run: docker build -t my-docker-image .
 
     - name: Start Docker container
-      run: docker run -d -p 8000:8000 -p 5000:5000 --network host --name my-container my-docker-image -j inference
+      run: |
+        docker run -d -p 8000:8000 -p 5000:5000 --network host --name my-container my-docker-image -j inference
+        sleep 10
 
     - name: Ping inference endpoint
-      run: curl -s -o /dev/null -w "%{http_code}" http://0.0.0.0:8000/infer
+      run: curl -s -o /dev/null -w "%{http_code}" http://0.0.0.0:8000/health
 
     - name: Cleanup Docker container
       run: docker stop my-container && docker rm my-container
